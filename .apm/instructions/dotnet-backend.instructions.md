@@ -1,0 +1,38 @@
+---
+description: Backend .NET conventions, constitutional principles, and quality bar
+applyTo: "src/Api/**/*.cs,src/Shared/**/*.cs"
+---
+
+# Backend (.NET) — Skills & Conventions
+
+You have access to skills in `.github/skills/backend/` for project-specific best practices. **YOU MUST** use these skills before answering questions or making changes related to these topics:
+
+- API endpoints & routing: `dotnet-api`
+- Architecture & domain logic: `clean-architecture`
+- Testing & TDD: `testing`
+
+## Constitutional Principles
+
+1. **Shared-First** — Domain logic starts in `src/Shared/` (entities, interfaces, extensions). No business rules in the Api project without first being defined in Shared.
+2. **Test-First** — Write tests before implementation. Red → Green → Refactor.
+3. **Simplicity** — Use ASP.NET Core features directly. No repository pattern, mediator, or CQRS unless the requirement explicitly demands it.
+4. **Anti-Abstraction** — One entity class per domain concept. No speculative features.
+
+## Tech Stack
+
+- **Framework**: ASP.NET Core 10.0 (Minimal API)
+- **Language**: C# 14
+- **Testing**: xUnit
+- **Package Management**: Central Package Management (`Directory.Packages.props`)
+
+## Quality Bar
+
+```bash
+dotnet build       # Zero warnings (TreatWarningsAsErrors enabled)
+dotnet test        # All tests pass
+dotnet format      # Code style per .editorconfig
+```
+
+## Code Style
+
+Defined in `.editorconfig`. Use `var` when type is apparent. Interface names start with `I`.
