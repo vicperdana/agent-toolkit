@@ -1,5 +1,5 @@
-using Shared.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Extensions;
 
 namespace Api.Tests.UnitTests;
 
